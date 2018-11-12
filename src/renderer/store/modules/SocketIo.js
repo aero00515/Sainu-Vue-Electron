@@ -1,11 +1,11 @@
-import logger from 'electron-timber';
-
 const SOCKET_CONNECT = 'SOCKET_CONNECT';
 const SOCKET_TWEET = 'SOCKET_TWEET';
+const SOCKET_SET_SAINUER = 'SOCKET_SETSAINUER';
 
 const state = {
   connect: false,
   message: null,
+  sainuer: '',
 };
 
 const mutations = {
@@ -14,14 +14,20 @@ const mutations = {
   },
   [SOCKET_TWEET](state, message) {
     const result = message.join(', ');
-    logger.log(SOCKET_TWEET, result);
     state.message = result;
+  },
+  [SOCKET_SET_SAINUER](state, sainuer) {
+    const result = sainuer.join(', ');
+    state.sainuer = result;
   },
 };
 
 const getters = {
   getMessage(state) {
     return state.message;
+  },
+  getSaiNuer(state) {
+    return state.sainuer;
   },
 };
 

@@ -5,13 +5,17 @@
         <div class="subtitle">You might be the one we're lookng for.</div>
       </div>
       <div class="namebox">
-        <input type="text" class="name-input" placeholder="Your Name"
-              @input="(event) => {
-                setSaiNuer(event.target.value);
-              }"/>
+        <input
+          type="text" class="name-input"
+          placeholder="Your Name"
+          v-model="sainuer"/>
       </div>
       <div class="next">
-        <router-link to="/sainuer" class="btn btn-primary btn-landing">
+        <router-link to="/sainuer"
+          class="btn btn-primary btn-landing"
+          @click.native="() => {
+            setSaiNuer(sainuer);
+          }">
           Next <span class="icon-right-arrow">></span>
         </router-link>
       </div>
@@ -19,15 +23,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import logger from 'electron-timber';
 
 export default {
-  computed: mapGetters({
-    sainuer: 'getSaiNuer',
+  data: () => ({
+    sainuer: '',
   }),
-  methods: mapActions([
-    'setSaiNuer',
-  ]),
+  methods: {
+    setSaiNuer(value) {
+      this.$socket.emit('setSaiNuer', value);
+    },
+  },
+  sockets: {
+    setSaiNuer(val) {
+      logger.log('this method was fired by the socket server. eg: io.emit("setSaiNuer", data)', val);
+    },
+  },
 };
 </script>
 

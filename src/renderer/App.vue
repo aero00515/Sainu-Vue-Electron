@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'sainu',
+    name: 'senu',
   };
 </script>
 

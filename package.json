@@ -1,8 +1,8 @@
 {
-  "name": "sainu",
+  "name": "senu",
   "version": "0.0.1",
   "author": "Andy Lin",
-  "description": "A Project of 91 sainu",
+  "description": "A Project of 91 senu",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -22,8 +22,8 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "sainu",
-    "appId": "tw.91app.sainu",
+    "productName": "senu",
+    "appId": "tw.91app.senu",
     "directories": {
       "output": "build"
     },

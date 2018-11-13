@@ -1,20 +1,20 @@
 <template>
   <div class="wrapper">
       <div class="titlebox">
-        <div class="title">Welcome to SaiNu!</div>
+        <div class="title">Welcome to Senu!</div>
         <div class="subtitle">You might be the one we're lookng for.</div>
       </div>
       <div class="namebox">
         <input
           type="text" class="name-input"
           placeholder="Your Name"
-          v-model="sainuer"/>
+          v-model="senuer"/>
       </div>
       <div class="next">
-        <router-link to="/sainuer"
+        <router-link to="/senuer"
           class="btn btn-primary btn-landing"
           @click.native="() => {
-            setSaiNuer(sainuer);
+            setSenuer(senuer);
           }">
           Next <span class="icon-right-arrow">></span>
         </router-link>
@@ -27,16 +27,16 @@ import logger from 'electron-timber';
 
 export default {
   data: () => ({
-    sainuer: '',
+    senuer: '',
   }),
   methods: {
-    setSaiNuer(value) {
-      this.$socket.emit('setSaiNuer', value);
+    setSenuer(value) {
+      this.$socket.emit('setSenuer', value);
     },
   },
   sockets: {
-    setSaiNuer(val) {
-      logger.log('this method was fired by the socket server. eg: io.emit("setSaiNuer", data)', val);
+    setSenuer(val) {
+      logger.log('this method was fired by the socket server. eg: io.emit("setSenuer", data)', val);
     },
   },
 };

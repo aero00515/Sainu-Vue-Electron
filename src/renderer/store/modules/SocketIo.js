@@ -1,11 +1,11 @@
 const SOCKET_CONNECT = 'SOCKET_CONNECT';
 const SOCKET_TWEET = 'SOCKET_TWEET';
-const SOCKET_SET_SAINUER = 'SOCKET_SETSAINUER';
+const SOCKET_SET_SENUER = 'SOCKET_SETSENUER';
 
 const state = {
   connect: false,
   message: null,
-  sainuer: '',
+  senuer: '',
 };
 
 const mutations = {
@@ -16,9 +16,9 @@ const mutations = {
     const result = message.join(', ');
     state.message = result;
   },
-  [SOCKET_SET_SAINUER](state, sainuer) {
-    const result = sainuer.join(', ');
-    state.sainuer = result;
+  [SOCKET_SET_SENUER](state, senuer) {
+    const result = senuer.join(', ');
+    state.senuer = result;
   },
 };
 
@@ -26,8 +26,8 @@ const getters = {
   getMessage(state) {
     return state.message;
   },
-  getSaiNuer(state) {
-    return state.sainuer;
+  getSenuer(state) {
+    return state.senuer;
   },
 };
 

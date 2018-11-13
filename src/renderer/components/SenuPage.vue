@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div>{{sainuer}}, you're on!</div>
+    <div>{{senuer}}, you're on!</div>
     <div class="loading-dots">We're listening<span>.</span><span>.</span><span>.</span></div>
     <button class="btn" v-on:click="(event) => {
       clickEmit('tweettttt');
@@ -15,7 +15,7 @@ import logger from 'electron-timber';
 
 export default {
   computed: mapGetters({
-    sainuer: 'getSaiNuer',
+    senuer: 'getSenuer',
     message: 'getMessage',
   }),
   methods: {

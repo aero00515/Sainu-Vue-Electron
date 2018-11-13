@@ -11,9 +11,9 @@ export default new Router({
       component: require('@/components/LandingPage').default,
     },
     {
-      path: '/sainuer',
-      name: 'sainier-page',
-      component: require('@/components/SaiNuPage').default,
+      path: '/senuer',
+      name: 'senier-page',
+      component: require('@/components/SenuPage').default,
     },
     {
       path: '*',

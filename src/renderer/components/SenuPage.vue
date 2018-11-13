@@ -2,31 +2,28 @@
   <div class="wrapper">
     <div>{{senuer}}, you're on!</div>
     <div class="loading-dots">We're listening<span>.</span><span>.</span><span>.</span></div>
-    <button class="btn" v-on:click="(event) => {
-      clickEmit('tweettttt');
-    }">Tweet</button>
     {{message}}
+    <nine-yi-map />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import logger from 'electron-timber';
+import NineYiMap from './NineYiMap/NineYiMap.vue';
 
 export default {
   computed: mapGetters({
     senuer: 'getSenuer',
     message: 'getMessage',
   }),
-  methods: {
-    clickEmit(value) {
-      this.$socket.emit('tweet', value);
+  sockets: {
+    aware(val) {
+      logger.log('this method was fired by the socket server. eg: io.emit("aware", data)', val);
     },
   },
-  sockets: {
-    tweet(val) {
-      logger.log('this method was fired by the socket server. eg: io.emit("tweet", data)', val);
-    },
+  components: {
+    NineYiMap,
   },
 };
 </script>
